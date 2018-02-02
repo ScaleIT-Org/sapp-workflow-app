@@ -1,38 +1,10 @@
-# NodeJS App Skeleton
+# Workflow App
+
+This is a demo application based on the protoype from the previous paper prototyping workshop
 
 ## Technology Stack
 	NodeJs->(Typescript->Angular->Ionic)
-
-## Usage (Standalone)
-### Resolve dependencies
-	npm install
-### Build Frontend
-	npm run build
-### Run Server
-	node server.js
-
-## Usage (Docker)
-###Docker:
-	docker build -t nodejs-app-skeleton
-	docker run -p 3000:3000 nodejs-app-skeleton
-###Docker Compose
-	docker-compose up
-###Container Security (Optional)
-        Build with healtcheck enabled
-
-        HEALTHCHECK --interval=5m --timeout=3s \
-        CMD curl -f http://localhost:5002/ || exit 1
-
-###Skeleton Functionality
-        1) NodeJs Server for static files
-        2) Ionic frontend
-
-## Learning Material
-
-Reactive Manifesto: https://www.reactivemanifesto.org/
-
-Reactive Programming: https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
-
-Ionic Presentation: http://ionicframework.com/present-ionic/slides/#/26
+	(Based on nodejs-app-skeleton: https://github.com/ScaleIT-Org/nodejs-app-skeleton)
 
 
+![Workflow App Welcome Screen](https://raw.githubusercontent.com/ScaleIT-Org/Workflow-App/master/Resources/Store/Screenshots/Screenshot%20from%202018-02-02%2012-24-08.png)
