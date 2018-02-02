@@ -1,0 +1,133 @@
+.ios, .md {
+ 
+    page-home {
+ 
+        .scroll-content {
+            background-color: map-get($colors, light);
+        }
+ 
+        ion-card-header {
+            font-weight: bold;
+        }
+        .button {
+            background: gray;
+        }
+        .button.active {
+          background: map-get($colors, primary);
+        }
+        .grid-container {
+          display: grid;
+          grid-template-columns: 1fr 30% 20%;
+          grid-gap: 10px;
+          grid-auto-rows: auto;
+          grid-gap: 10px;
+          padding: 10px;
+        }
+        .grid-container > div {
+          text-align: left;
+          padding: 20px 0;
+          font-size: 30px;
+        }
+        .grid1item1 {
+          grid-row: 1/1;
+          grid-column: 1/1; 
+        }
+        .grid1item2 {
+          grid-row: 2/2;
+          grid-column: 1/1;
+        }
+        .grid1item3 {
+          grid-row: 3/3;
+          grid-column: 1/1;
+        }
+        .grid1item4 {
+          grid-row: 3/3;
+          grid-column: 2/2;
+        }
+        .grid1item5 {
+          grid-row: 1/1;
+          grid-column: 3/3;
+        }
+        .grid1item6 {
+          grid-row: 3/3;
+          grid-column: 3/3;
+        }
+        .grid-container2 {
+          display: grid;
+          grid-template-columns: 1fr 0.2fr 1fr 0.2fr 1fr;
+          grid-template-rows: repeat(1, 1fr);
+          grid-gap: 10px;
+          padding: 10px;
+        }
+        .grid-container2 > div {
+          font-size: 30px;
+          border-radius: 20px;
+          display: grid; /* added */
+          align-items: center; /* added */
+        }
+        .grid-container2 > div > button {
+          color: white;
+          background: map-get($colors, primary);
+          border: 2px solid;
+          border-color: #0a4bb2;
+          border-radius: 20px;
+          font: inherit;
+          line-height: 1;
+        }
+        .grid2item1 {
+          grid-row: 1/1;
+          grid-column: 1/1; 
+        }
+        .grid2item2 {
+          grid-row: 1/1;
+          grid-column: 2/2;
+        }
+        .grid2item3 {
+          grid-row: 1/1;
+          grid-column: 3/3;
+        }
+        .grid2item4 {
+          grid-row: 1/1;
+          grid-column: 4/4;
+        }
+        .grid2item5 {
+          grid-row: 1/1;
+          grid-column: 5/5;
+        }
+
+//box-shadow: [inset?] [top] [left] [blur] [size] [color];
+        // ******************************Button Animations***************************************
+        // Size can also be negative; see how it's smaller than the element
+        .raise:hover,
+        .raise:focus {
+          box-shadow: 10px 10px 50px -5px var(--hover);
+          transform: translateY(-0.25em);
+          background: #1f5dc1;
+        }
+        $colors: (
+          raise: black, 
+        );
+
+        // Sass variables compile to a static string; CSS variables are dynamic and inherited
+          // Loop through the map and set CSS custom properties using Sass variables
+        @each $button, $color in $colors {
+          .#{$button} {
+            --color: #{$color};
+            --hover: #{adjust-hue($color, 45deg)};
+          }
+        }
+
+        // Now every button will have different colors as set above. We get to use the same structure, only changing the custom properties.
+        button {  
+          color: var(--color);
+          transition: 0.25s;
+          
+          &:hover,
+          &:focus { 
+            border-color: var(--hover);
+            color: #fff;
+          }
+        }
+
+    }
+}
