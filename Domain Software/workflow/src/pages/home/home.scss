@@ -14,6 +14,7 @@
         }
         .button.active {
           background: map-get($colors, primary);
+          color: white;
         }
         .grid-container {
           display: grid;
@@ -61,18 +62,13 @@
         }
         .grid-container2 > div {
           font-size: 30px;
-          border-radius: 20px;
           display: grid; /* added */
           align-items: center; /* added */
         }
         .grid-container2 > div > button {
-          color: white;
-          background: map-get($colors, primary);
-          border: 2px solid;
-          border-color: #0a4bb2;
-          border-radius: 20px;
+          color: black;
+          background: white;
           font: inherit;
-          line-height: 1;
         }
         .grid2item1 {
           grid-row: 1/1;
@@ -94,15 +90,34 @@
           grid-row: 1/1;
           grid-column: 5/5;
         }
+        .grid2item6-progress {
+          grid-row: 2/2;
+          grid-column: 1/6;
+        }
+
+        //Progress Bar
+        #progressbar {
+            background-color: black;
+            border-radius: 13px; /* (height of inner div) / 2 + padding */
+            padding: 3px;
+        }
+          
+        #progressbar > div {
+           background-color: map-get($colors, primary);
+           width: 15%; /* Adjust with JavaScript */
+           height: 20px;
+           border-radius: 10px;
+        }
+
 
 //box-shadow: [inset?] [top] [left] [blur] [size] [color];
         // ******************************Button Animations***************************************
         // Size can also be negative; see how it's smaller than the element
         .raise:hover,
         .raise:focus {
-          box-shadow: 10px 10px 50px -5px var(--hover);
-          transform: translateY(-0.25em);
-          background: #1f5dc1;
+          box-shadow: 5px 5px 25px -10px var(--hover);
+          transform: translateY(-0.04em);
+          background: map-get($colors, light-blue);
         }
         $colors: (
           raise: black, 
@@ -124,10 +139,8 @@
           
           &:hover,
           &:focus { 
-            border-color: var(--hover);
             color: #fff;
           }
         }
-
     }
 }

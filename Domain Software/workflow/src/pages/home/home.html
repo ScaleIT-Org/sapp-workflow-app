@@ -19,6 +19,9 @@
 </ion-header>
 
 <ion-content padding>
+	<ion-card>
+		Test
+	</ion-card>	
   <ion-card style="height:96%;">
 	  <ion-card-content style="height:100%;">
 		  	<div class="grid-container" style="overflow-y:auto; height:100%;">
@@ -57,25 +60,42 @@
 <ion-footer style=" height:20vh; background-color: lightgray; text-align: center; justify-content: center; align-items: center;">
 		<div class="grid-container2" style="height:100%;">
 			<div class="grid2item1 fill">
-				<button class="raise" ion-button color="primary" style="height: 100%;">
-					Versand<br>
-					LS Scan --> Ware Scan
+				<button class="raise" ion-button icon-start color="primary" style="height: 100%;" outline>
+					<div>
+						<ion-icon name="camera"></ion-icon><br>
+						Versand<br>
+						LS Scan --> Ware Scan<br>
+					</div>
 				</button>
 			</div>
 			<div class="grid2item2">
 				<ion-icon name="md-arrow-forward"></ion-icon>
 			</div>
 			<div class="grid2item3">
-				<button class="raise" ion-button color="primary" style="height: 100%;" disabled>
-					LKW <br>
-					--> LKW -->
+				<button class="raise" ion-button color="primary" style="height: 100%;" disabled outline>
+					<div>
+						<ion-icon name="checkbox"></ion-icon><br>
+						LKW <br>
+						--> LKW -->
+					</div>
 				</button>
 			</div>
 			<div class="grid2item4">
 				<ion-icon name="md-arrow-forward"></ion-icon>
 			</div>
 			<div class="grid2item5">
-				<button class="raise" ion-button color="primary" style="height: 100%;" disabled>Foto <br>Ladungssicherung</button>
+					<button class="raise" ion-button color="primary" style="height: 100%;" disabled outline>
+						<div>
+							<ion-icon name="cart"></ion-icon>
+							<ion-icon name="camera"></ion-icon><br> 
+							Foto <br>Ladungssicherung
+						</div>
+					</button>
+			</div>
+			<div class="grid2item6-progress">
+				<div id="progressbar">
+		      		<div></div>
+		    	</div>
 			</div>
 		</div>
 </ion-footer>

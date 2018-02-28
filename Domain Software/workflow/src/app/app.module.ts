@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Observable } from 'rxjs/Rx'
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -11,7 +11,10 @@ import { HomePage } from '../pages/home/home';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+  ],
+  schemas: [
+    NO_ERRORS_SCHEMA
   ],
   imports: [
     BrowserModule,
