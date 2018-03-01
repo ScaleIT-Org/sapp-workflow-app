@@ -1,6 +1,6 @@
 version: '2'
 services:
    workflow-app:
-        build: .
+        build: "Domain Software/workflow/."
         ports:
           - "3000:3000"
