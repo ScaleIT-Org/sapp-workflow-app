@@ -1,0 +1,113 @@
+<script src="webcomponents-loader.js"></script>
+
+<script src="awc-core.js"></script>
+
+ <template id="text">
+    <style>
+        div {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: 2vw;
+            line-height: 2em;
+        }
+        .right { 
+            color: green;
+            text-align: center;
+            font-size: 8vw;
+            display: none;
+        }
+        .wrong {
+            color: red;  
+            text-align: center; 
+            font-size: 8vw;
+            display: none;
+        }
+    </style>
+    <div>Foo</div>
+    <p id="test" class='right'>&#10004;</p>
+    <p class='wrong'>&#10006;</p>
+  </template>
+  <script>
+    (function() {
+      var importDoc = document.currentScript.ownerDocument; // importee
+        window.addEventListener('WebComponentsReady', function () {
+          class AdaptivePerson extends awc.AdaptiveComponent(HTMLElement) {
+            constructor() {
+              super();
+            }
+
+            static get observedAttributes() {
+              return ['name'];
+            }
+
+            get name() {
+              return this.getAttribute('name');
+            }
+
+            set name(val) {
+              this.setAttribute('name', val);
+            }
+
+            attributeChangedCallback(name, oldValue, newValue) {
+              super.attributeChangedCallback(name, oldValue, newValue);
+              this._update();
+            }
+
+            performAdaptation(profile) {
+              super.performAdaptation(profile);
+              if (window.ShadyCSS) {
+                window.ShadyCSS.styleSubtree(this);
+              }
+              this._update();
+            }
+
+            _update() {
+              if (this._currentVariant != null) {
+                this._currentVariant.name = this.name;
+              }
+            }
+          }
+
+          class TextPerson extends awc.AdaptiveVariant {
+            constructor() {
+              super();
+            }
+
+            get template() {
+              let tmpl = importDoc.querySelector('template#text');
+              return tmpl.content;
+            }
+
+            static matches(context) {
+              return context['display-mode'] == 'text';
+            }
+
+            connectedCallback() {
+              super.connectedCallback();
+
+              this._initial = this.contentRoot.querySelector("div");
+            }
+            
+            
+            set name(val) {
+                this._initial.innerHTML = "ID: <b>'" + val + "'</b> loaded into truck?";
+                if (Math.random() > 0.5){
+                    this._initial.nextElementSibling.style.display = "block"
+                    this._initial.nextElementSibling.nextElementSibling.style.display = "none"
+                } else {
+                    this._initial.nextElementSibling.style.display = "none"
+                    this._initial.nextElementSibling.nextElementSibling.style.display = "block"
+                }
+            }
+          }
+
+          AdaptivePerson.registerVariant(TextPerson);
+
+          AdaptivePerson.defaultVariant = TextPerson;
+
+          customElements.define('truck-check', AdaptivePerson);
+        });
+        let profilestore = new awc.ProfileStore(true);
+      })();
+  </script>
