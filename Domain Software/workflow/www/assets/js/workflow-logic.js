@@ -17,20 +17,27 @@ $( document ).ready(function() {
     document.getElementById("truck-check").name = e.detail;
   });
 
-    // FOOTER BUTTON 2
-    document.querySelector("#truck-btn").addEventListener("click", function (e) {
-        document.getElementById("qrcode").style.display = "none";
-        document.getElementById("truck").style.display = "block";
-        document.getElementById("progressbar-bar").style.width = "50%";
-        document.getElementById("truck-btn").disabled= true;
-        document.getElementById("photo-btn").disabled= false;
-    });
+  // FOOTER BUTTON 2
+  document.querySelector("#truck-btn").addEventListener("click", function (e) {
+    document.getElementById("qrcode").style.display = "none";
+    document.getElementById("truck").style.display = "block";
+    document.getElementById("progressbar-bar").style.width = "50%";
+    document.getElementById("truck-btn").disabled= true;
+    document.getElementById("photo-btn").disabled= false;
+  });
 
     // FOOTER BUTTON 3
-    document.querySelector("#photo-btn").addEventListener("click", function (e) {
-        document.getElementById("truck").style.display = "none";
-        document.getElementById("photo").style.display = "block";
-        document.getElementById("progressbar-bar").style.width = "75%";
-        document.getElementById("photo-btn").disabled= true;
-      });
+  document.querySelector("#photo-btn").addEventListener("click", function (e) {
+    document.getElementById("truck").style.display = "none";
+    document.getElementById("qrcode").style.display = "block";
+    document.getElementById("progressbar-bar").style.width = "75%";
+    document.getElementById("photo-btn").disabled= true;
+    document.getElementById("scanner").active = true;
+  });
+
+  $(function() { 
+    $("#snapshot2").click(function() { 
+
+    });
+  }); 
 });
