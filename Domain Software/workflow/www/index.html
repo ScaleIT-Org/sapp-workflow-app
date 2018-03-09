@@ -19,7 +19,8 @@
   <script src="assets/js/tether.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
   <script defer src="assets/js/fontawesome-all.js"></script>
-  <script defer src="assets/js/html2canvas.min.js"></script>
+  <script defer src="assets/js/say-cheese.js"></script>
+  <script defer src="assets/js/camera.js"></script>
   
   <meta name="theme-color" content="#4e8ef7">
 
@@ -27,8 +28,6 @@
 
   <link rel="import" href="components/granite-qrcode-scanner/granite-qrcode-scanner.html">
   <link rel="import" href="components/truck-check/truck-check.html">
-
-  <link href="build/main.css" rel="stylesheet">
 
   <link href="build/main.css" rel="stylesheet">
 
@@ -50,6 +49,7 @@
 
     <!-- Main Content -->
     <div style="overflow-y: scroll;">
+      
       <div class="ion-card" id="start" style="display: block">
         <div class="grid-container" style=" height:100%;">
           <div class="grid1item1">
@@ -84,6 +84,13 @@
 
       <div class="ion-card" id="truck" style="display: none">
         <truck-check id="truck-check" name="failed"></truck-check>
+      </div>
+
+     <div class="ion-card" id="camera2" style="display: none; text-align: center;"> 
+        <div id="camera"> </div>
+        <div id="say-cheese-snapshots" style="margin: 0 auto; width: 640px; height: 480px; display: none"></div>
+        <button id="take-snapshot"><i class="fa fa-camera" style="font-size:24px; display:inline-block;"></i></button>
+        <button id="snapshot-redo"><i class="fas fa-sync-alt" aria-hidden="true" style="font-size:24px; display:inline-block;"></i></button>
       </div>
 
     </div>

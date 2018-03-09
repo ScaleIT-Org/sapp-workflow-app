@@ -29,15 +29,9 @@ $( document ).ready(function() {
     // FOOTER BUTTON 3
   document.querySelector("#photo-btn").addEventListener("click", function (e) {
     document.getElementById("truck").style.display = "none";
-    document.getElementById("qrcode").style.display = "block";
+    document.getElementById("camera2").style.display = "block";
     document.getElementById("progressbar-bar").style.width = "75%";
     document.getElementById("photo-btn").disabled= true;
-    document.getElementById("scanner").active = true;
   });
 
-  $(function() { 
-    $("#snapshot2").click(function() { 
-
-    });
-  }); 
 });
