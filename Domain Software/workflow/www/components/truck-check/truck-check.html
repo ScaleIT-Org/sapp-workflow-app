@@ -91,14 +91,15 @@
             
             
             set name(val) {
-                this._initial.innerHTML = "ID: <b>'" + val + "'</b> loaded into truck?";
-                if (Math.random() > 0.5){
-                    this._initial.nextElementSibling.style.display = "block"
-                    this._initial.nextElementSibling.nextElementSibling.style.display = "none"
-                } else {
-                    this._initial.nextElementSibling.style.display = "none"
-                    this._initial.nextElementSibling.nextElementSibling.style.display = "block"
-                }
+              var json = JSON.parse(val);
+              this._initial.innerHTML = "Product: <b>'" + json["Product-id"] + "'</b> loaded into truck: <b>'"+ json.Truck +"'</b> ?";
+              if (Math.random() > 0.5){
+                  this._initial.nextElementSibling.style.display = "block"
+                  this._initial.nextElementSibling.nextElementSibling.style.display = "none"
+              } else {
+                  this._initial.nextElementSibling.style.display = "none"
+                  this._initial.nextElementSibling.nextElementSibling.style.display = "block"
+              }
             }
           }
 

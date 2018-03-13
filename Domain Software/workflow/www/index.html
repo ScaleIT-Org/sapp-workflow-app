@@ -75,9 +75,13 @@
           </div>  
         </div>
       </div>
-      <div class="ion-card" id="qrcode" style="display: none">
-        <granite-qrcode-scanner id="scanner" continuous="true" height="400" width="600"> </granite-qrcode-scanner>
-        <span id="qr-msg"> QR-Code Message: </span>
+      <div id="qrcode" style="display: none">
+        <div class="ion-card">
+          <granite-qrcode-scanner id="scanner" continuous="true" height="400" width="600"> </granite-qrcode-scanner>
+        </div>
+        <div class="ion-card">
+          <pre id="qr-msg"> QR-Code Message: </pre>
+        </div>
       </div>
 
       <div class="ion-card" id="truck" style="display: none">

@@ -12,7 +12,7 @@ $( document ).ready(function() {
 
   //QR CODE SCANNER
   document.querySelector("#scanner").addEventListener("qrcode-decoded", function (e) {
-    document.getElementById("qr-msg").innerHTML =" QR-Code Message: <b>" + e.detail; + "</b>"
+    document.getElementById("qr-msg").innerHTML =" QR-Code Message: <br><b>" + JSON.stringify(JSON.parse(e.detail), undefined, 4); + "</b>"
     document.getElementById("progressbar-bar").style.width = "35%";
     document.getElementById("truck-btn").disabled= false;
     document.getElementById("truck-check").name = e.detail;
