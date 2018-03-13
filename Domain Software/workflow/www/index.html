@@ -48,8 +48,7 @@
     </nav>
 
     <!-- Main Content -->
-    <div style="overflow-y: scroll;">
-      
+    <div style="position: relative">
       <div class="ion-card" id="start" style="display: block">
         <div class="grid-container" style=" height:100%;">
           <div class="grid1item1">
@@ -73,10 +72,9 @@
           </div>  
           <div class="grid1item6">
             <img width="80" height="80" alt="Women" src="assets/Women.png" style="float: right;"><br>
-          </div>   
+          </div>  
         </div>
       </div>
-
       <div class="ion-card" id="qrcode" style="display: none">
         <granite-qrcode-scanner id="scanner" continuous="true" height="400" width="600"> </granite-qrcode-scanner>
         <span id="qr-msg"> QR-Code Message: </span>
@@ -92,6 +90,13 @@
         <button id="take-snapshot"><i class="fa fa-camera" style="font-size:24px; display:inline-block;"></i></button>
         <button id="snapshot-redo"><i class="fas fa-sync-alt" aria-hidden="true" style="font-size:24px; display:inline-block;"></i></button>
       </div>
+
+      <a id="next-btn" href="#" class="float-right">
+        <i class="far fa-arrow-alt-circle-right" style="font-size:61px;"  ></i>
+      </a>
+      <a id="prev-btn" href="#" class="float-left not-active">
+        <i class="far fa-arrow-alt-circle-left" style="font-size:61px;"  ></i>
+      </a>
 
     </div>
     <!-- *********** FOOTER *****************-->

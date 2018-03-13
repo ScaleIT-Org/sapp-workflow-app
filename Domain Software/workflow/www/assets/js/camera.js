@@ -1,15 +1,17 @@
+var snapshottaken = false;
 $(function() {
     var sayCheese = new SayCheese('#camera', { });
-
     sayCheese.on('start', function() {
         $('#action-buttons').fadeIn('fast');
 
         $('#take-snapshot').on('click', function(evt) {
             sayCheese.takeSnapshot();
+            snapshottaken = true;
         });
         $('#snapshot-redo').on('click', function(evt) {
             $("#camera").show();
             $("#say-cheese-snapshots").hide();
+            snapshottaken = false;
         });
         var video = document.getElementsByTagName("video")[0];
         video.height = 480;

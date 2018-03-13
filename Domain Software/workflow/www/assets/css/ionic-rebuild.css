@@ -11,3 +11,37 @@ body {
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
+
+.float-right{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:220px;
+	right:2vw;
+	color: "#FFFFFF";
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 4px 4px 9px #999;
+}
+.float-left{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:220px;
+	left:2vw;
+	color: "#488aff";
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 4px 4px 9px #999;
+}
+
+.my-float{
+	margin-top:22px;
+}
+.not-active {
+	pointer-events: none;
+	cursor: default;
+	text-decoration:none;
+	color:black;
+}
+  
