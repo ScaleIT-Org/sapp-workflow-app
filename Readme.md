@@ -1,10 +1,17 @@
+<img src="https://raw.githubusercontent.com/ScaleIT-Org/media-ressources/master/logo/scaleit-logo.png" width="20%"/>
 # Workflow App
 
-This is a demo application based on the protoype from the previous paper prototyping workshop
+Resulting application from an "App-Paper-Prototyping-Workshop"
+A pre defined workflow will be processed with different web-components for every part of the workflow.
+
+Example scenario: QR code scanning of a specific product with defined truck to load on. Check if the product was loaded into the specific truck. Capture an image of the loading surface from the truck to have a prove that the product is loaded into the right truck.
 
 ## Technology Stack
-	NodeJs->(Typescript->Angular->Ionic)
-	(Based on nodejs-app-skeleton: https://github.com/ScaleIT-Org/nodejs-app-skeleton)
 
+- Branch Master
+	- Static HTML (Bootstrap / AWC-Core / granit-qr-scanner)
+- Branch Ionic
+	- NodeJs->(Typescript->Angular->Ionic)
 
-<img src="https://github.com/ScaleIT-Org/sapp-workflow-app/raw/master/Resources/Store/Screenshots/Screenshot%20from%202018-02-02%2012-24-08.png" width="50%"/>
+# Example scenario
+![Example gif](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
