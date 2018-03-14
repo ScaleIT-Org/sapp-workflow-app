@@ -1,4 +1,5 @@
 <img src="https://raw.githubusercontent.com/ScaleIT-Org/media-ressources/master/logo/scaleit-logo.png" width="20%"/>
+
 # Workflow App
 
 Resulting application from an "App-Paper-Prototyping-Workshop"
@@ -12,6 +13,6 @@ Example scenario: QR code scanning of a specific product with defined truck to l
 	- Static HTML (Bootstrap / AWC-Core / granit-qr-scanner)
 - Branch Ionic
 	- NodeJs->(Typescript->Angular->Ionic)
-
+	
 # Example scenario
-![Example gif](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
+![Example gif](https://raw.githubusercontent.com/ScaleIT-Org/sapp-workflow-app/master/Resources/Store/example%20scenario/scenario.gif)
