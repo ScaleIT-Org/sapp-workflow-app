@@ -1,38 +1,17 @@
-# NodeJS App Skeleton
+<img src="https://raw.githubusercontent.com/ScaleIT-Org/media-ressources/master/logo/scaleit-logo.png" width="20%"/>
+# Workflow App
+
+Resulting application from an "App-Paper-Prototyping-Workshop"
+A pre defined workflow will be processed with different web-components for every part of the workflow.
+
+Example scenario: QR code scanning of a specific product with defined truck to load on. Check if the product was loaded into the specific truck. Capture an image of the loading surface from the truck to have a prove that the product is loaded into the right truck.
 
 ## Technology Stack
-	NodeJs->(Typescript->Angular->Ionic)
 
-## Usage (Standalone)
-### Resolve dependencies
-	npm install
-### Build Frontend
-	npm run build
-### Run Server
-	node server.js
+- Branch Master
+	- Static HTML (Bootstrap / AWC-Core / granit-qr-scanner)
+- Branch Ionic
+	- NodeJs->(Typescript->Angular->Ionic)
 
-## Usage (Docker)
-###Docker:
-	docker build -t nodejs-app-skeleton
-	docker run -p 3000:3000 nodejs-app-skeleton
-###Docker Compose
-	docker-compose up
-###Container Security (Optional)
-        Build with healtcheck enabled
-
-        HEALTHCHECK --interval=5m --timeout=3s \
-        CMD curl -f http://localhost:5002/ || exit 1
-
-###Skeleton Functionality
-        1) NodeJs Server for static files
-        2) Ionic frontend
-
-## Learning Material
-
-Reactive Manifesto: https://www.reactivemanifesto.org/
-
-Reactive Programming: https://gist.github.com/staltz/868e7e9bc2a7b8c1f754
-
-Ionic Presentation: http://ionicframework.com/present-ionic/slides/#/26
-
-
+# Example scenario
+![Example gif](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif)
