@@ -7,6 +7,11 @@ $(function() {
         $('#take-snapshot').on('click', function(evt) {
             sayCheese.takeSnapshot();
             snapshottaken = true;
+            document.getElementById("camera2").style.display = "none";
+            document.getElementById("finish").style.display = "block";
+            document.getElementById("next-btn").click();
+            document.getElementById("next-btn").classList.remove("not-active");
+            document.getElementById("prev-btn").classList.remove("not-active");
         });
         $('#snapshot-redo').on('click', function(evt) {
             $("#camera").show();

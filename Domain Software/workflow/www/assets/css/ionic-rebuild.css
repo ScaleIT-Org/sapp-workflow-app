@@ -44,4 +44,10 @@ body {
 	text-decoration:none;
 	color:black;
 }
-  
+
+.finished { 
+	color: green;
+	text-align: center;
+	font-size: 8vw;
+	display: block;
+}
