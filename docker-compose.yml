@@ -1,7 +1,8 @@
 version: '2'
 
 services:
-    workflow-demonstrator:
-        build: Domain Software/workflow/.
+   workflow-app:
+        image: scaleit-app-pool.ondics.de:5000/scaleit-app-pool/sapp-workflow-app:1.0
+        build: "Domain Software/workflow/."
         ports:
-            - "3000:3000"
+          - "49530:3000"
