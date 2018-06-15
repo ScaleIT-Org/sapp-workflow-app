@@ -1,3 +1,5 @@
+sudo: required
+
 env:
   # You may want to update this to whatever the latest version is
   DOCKER_COMPOSE_VERSION: 1.13.0
