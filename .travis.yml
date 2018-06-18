@@ -3,6 +3,10 @@ sudo: required
 env:
   # You may want to update this to whatever the latest version is
   DOCKER_COMPOSE_VERSION: 1.13.0
+  global:
+    - REGISTRY_USER=scaleitrobot
+    # REGISTRY_PASS=...
+    - secret: "hIhNG6aXprGvlFzCn3eeGITTHwX+CqBlXClXfzyfhllAq3+wWV+vrlEUjAyKWwymiyujaPG1c7Yd99CWcvSbvgsTEoF5Ada9RkUec3UIcUQBptDEMMYGlT6Cqqr+Tp4cqSRR5YDBKj60bQeNjoUQvVcA2JzRzC9UgJAtNdwuplm/r87sxIapXD5YGwDuVcsnPw20ncRow+eW8RmsTlDW3onON51SZQYjUAF+DpifWFtWWPj+1YyUofcy3fiLnt2iMyT7aYKKSF5GDsvrMFtD52jhgMVm16f7h/cgO2/q5m3WUQc/LhJbmvwmWobRdFit9MDD7akBKV23sFZ/SEsbC8K5CmqSVKT2Cu+oonwIngXZSwDwSP5EBcQUe2nxDNUq3AhN6FcN0ehCb64tuPIJRcwmA7krBe3k69hvKOm9v3iYFMo/cnISSVbilqQWfsYsVoXPEW5TSsykSJHAJ/4lpdX0iVYDrOTzZTrSHEcUvxDJy9QXH41mGkPldjgO18gJ5xKxerr/zIwQRSv9Sb/U3R06waBpYWn8SFcbipB7Cb3Dts56gGD4yvpgOn3MZW+w7dFAjMnai3C9J9NNeF7xNPZiDER38KrxFk6BPRaAr/Tgb+uTs2+/oaDNUzgJ8+LKns/HbrVJ/4ySZalchcHbzrILkifuqGJ6jbsUPFwebyA="
 
 before_install:
   # update is required to update the repositories to see the new packages for
@@ -51,3 +55,11 @@ script:
 
 after_script:
   - docker-compose down
+
+before_deploy:
+  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
+deploy:
+  provider: script
+  script: docker push scaleit/sapp-workflow-app
+  on:
+    branch: master
