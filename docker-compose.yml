@@ -1,7 +1,7 @@
 version: '2'
 services:
    workflow-app:
-        image: sapp-workflow-app
+        image: scaleit/sapp-workflow-app
         build: "Domain Software/workflow/."
         ports:
           - "3000:3000"
