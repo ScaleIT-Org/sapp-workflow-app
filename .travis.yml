@@ -1,63 +1,28 @@
 sudo: required
-
 env:
-  # You may want to update this to whatever the latest version is
   global:
-    - DOCKER_COMPOSE_VERSION="1.13.0"
-    - REGISTRY_USER=scaleitrobot
-    # REGISTRY_PASS=...
-    - secret: "hIhNG6aXprGvlFzCn3eeGITTHwX+CqBlXClXfzyfhllAq3+wWV+vrlEUjAyKWwymiyujaPG1c7Yd99CWcvSbvgsTEoF5Ada9RkUec3UIcUQBptDEMMYGlT6Cqqr+Tp4cqSRR5YDBKj60bQeNjoUQvVcA2JzRzC9UgJAtNdwuplm/r87sxIapXD5YGwDuVcsnPw20ncRow+eW8RmsTlDW3onON51SZQYjUAF+DpifWFtWWPj+1YyUofcy3fiLnt2iMyT7aYKKSF5GDsvrMFtD52jhgMVm16f7h/cgO2/q5m3WUQc/LhJbmvwmWobRdFit9MDD7akBKV23sFZ/SEsbC8K5CmqSVKT2Cu+oonwIngXZSwDwSP5EBcQUe2nxDNUq3AhN6FcN0ehCb64tuPIJRcwmA7krBe3k69hvKOm9v3iYFMo/cnISSVbilqQWfsYsVoXPEW5TSsykSJHAJ/4lpdX0iVYDrOTzZTrSHEcUvxDJy9QXH41mGkPldjgO18gJ5xKxerr/zIwQRSv9Sb/U3R06waBpYWn8SFcbipB7Cb3Dts56gGD4yvpgOn3MZW+w7dFAjMnai3C9J9NNeF7xNPZiDER38KrxFk6BPRaAr/Tgb+uTs2+/oaDNUzgJ8+LKns/HbrVJ/4ySZalchcHbzrILkifuqGJ6jbsUPFwebyA="
-
+  - DOCKER_COMPOSE_VERSION="1.13.0"
+  - REGISTRY_USER=scaleitrobot
+  - secure: QFy70YrnT0l3ztREfvWuT7XhjTcTQHDZbj0FVihQHlmVR88A4J4emlGey42C0fl5yIw/QpImk0NQ8EIjWhpTR8n6Z4N6LYxnojFgXpiSRb2IKS4E5I7i2jF8r0Hm3oPiYCmG6E4j7HH6AYsOG9iRaAtB2I0s/Ji6NEA0qgJ8h/eyx7tlESI3InDYRE7i8haa/VB0W98zQWZrGfVsLzp74PeKtmc7XkAzYIYyF2kLgDiikE00jcvQnV4+Z2ZsXeUQcu9AqGoxVzWcvrtxUMXBHOztWywxmFmFIs2BVbXg+Amv4kOlgudfcAmIvhCp2rQd3/LQ3/FHeEJd89+qtzLi/Xq0apGULPQQzF6e9pH1TuQJu6+0exOmr+F158fsdRxY5U1AIQy/ruog80Dy3oU6dkEvkxOMnJmeeD4d4l0W5jYRXDHMDbHrW1Zqmv/inDkBywCN4CSbOSG5P82OzIZb6gg/NBiDnspr8EiXf0JELjBsG7Bqj9EZgQUzEjXvCfSNlkmTCZG09RVvsCGAHBQRic0VO4fF1os4TDaVD5XrqEYDbugqTIMfyh/WJiQ74M72Msmgkp5KXSMEH4HIpqjeWn4co2BAbszJSp24t5QP0XAOSiBaHwQ+lbqNMU56wX7+sbKA3XxA9VsrVlc2Et9wGwSEzaxyGGLb/Khmalg+ZyA=
 before_install:
-  # update is required to update the repositories to see the new packages for
-  # Docker.
-  - sudo apt-get update
-
+- sudo apt-get update
 install:
-  # Now we can install the newer docker-ce which is required for the newer
-  # docker-composer we will install next. The messy options are to force it to
-  # be non-interactive (normally it asks you a bunch of config questions).
-  - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-ce
-
-  # Print out the current docker-compose version.
-  - docker-compose --version
-
-  # As of the writing of this script Travis has docker-compose v1.4.2, we need
-  # to update it to $DOCKER_COMPOSE_VERSION is provide from the `env`
-  # above.
-  - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-
-  # Check that docker-compose is now running the latest version (or at least the
-  # one we specified). This is not to be confused with the version we printed
-  # before doing the update.
-  - docker-compose --version
-
-  # Setup your application stack. You may need to tweak these commands if you
-  # doing out-of-the-ordinary docker-compose builds.
-  #- docker-compose pull
-  #- docker-compose build
-  #- docker-compose up -d
-
-  # You will want this for logging. If one of your containers does not build for
-  # whatever reason it's best to report that now before your tests start
-  # otherwise it can be really tricky to debug why tests are failing sometimes.
-  #- docker ps
-
+- sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-ce
+- docker-compose --version
+- sudo rm /usr/local/bin/docker-compose
+- curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname
+  -s`-`uname -m` > docker-compose
+- chmod +x docker-compose
+- sudo mv docker-compose /usr/local/bin
+- docker-compose --version
 before_script:
-  - docker-compose up --build -d
-
+- docker-compose up --build -d
 script:
-  #- ./test.sh
-  - docker ps
-
+- docker ps
 after_script:
-  - docker-compose down
-
+- docker-compose down
 before_deploy:
-  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
+- docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
 deploy:
   provider: script
   script: docker push scaleit/sapp-workflow-app
