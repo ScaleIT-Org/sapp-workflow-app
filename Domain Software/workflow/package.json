@@ -11,6 +11,6 @@
     "testcafe": "^0.20.3"
   },
   "scripts": {
-    "test": "testcafe chrome,firefox test/test.js"
+    "test": "testcafe firefox test/test.js"
   }
 }
