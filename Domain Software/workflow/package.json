@@ -6,5 +6,11 @@
   "dependencies": {
     "express": "^4.16.3"
   },
-  "description": "Workflow"
+  "description": "Workflow",
+  "devDependencies": {
+    "testcafe": "^0.20.3"
+  },
+  "scripts": {
+    "test": "testcafe chrome,firefox test/test.js  --app \"node server.js\""
+  }
 }

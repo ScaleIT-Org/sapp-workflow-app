@@ -1,4 +1,14 @@
+dist: trusty
 sudo: required
+
+addons:
+  firefox: latest
+  apt:
+    sources:
+     - google-chrome
+    packages:
+     - google-chrome-stable fluxbox
+
 services:
   - docker
 env:
@@ -12,7 +22,11 @@ install:
 - docker-compose --version
 - docker --version
 before_script:
-- docker-compose up --build -d
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3
+  - fluxbox >/dev/null 2>&1 &
+  - docker-compose up --build -d
 script:
 - docker ps
 after_script:
