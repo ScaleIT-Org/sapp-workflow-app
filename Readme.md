@@ -57,8 +57,8 @@ Different technology stacks
 
 ## Tests
   
-  IsRunningTest: Tests if application is running
-  qrcode-btn test: Tests if the qrcode-btn is deactivated and activated correctly 
+  - IsRunningTest: Tests if application is running
+  - qrcode-btn test: Tests if the qrcode-btn is deactivated and activated correctly 
 
 	
 ## Notes
