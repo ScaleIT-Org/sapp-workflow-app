@@ -17,8 +17,11 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse applica
 // Routes
 app.get('/', function (req, res)
 {
-	console.log("test")
     res.render('index.html');
+});
+app.get('/app/icon', function (req, res)
+{
+    res.sendFile(path.join(__dirname, '../../Resources/Rancher', 'catalogIcon-sapp-workflow-app.svg'));
 });
  
 // listen (start app with node server.js) ======================================
